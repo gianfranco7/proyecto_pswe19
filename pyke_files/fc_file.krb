@@ -1,0 +1,15 @@
+# fc_file.krb
+
+collect_cantons
+    foreach
+        facts.canton_of($canton, $province)
+        python cantons = []
+        forall
+            facts.canton_of($canton2, $province)
+            check $canton != $canton2
+            python cantons.append($canton2)
+        $cantons = tuple(cantons)
+    assert
+        facts.belong_to($province, $cantons)
+
+

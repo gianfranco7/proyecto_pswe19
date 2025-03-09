@@ -1,10 +1,17 @@
 
-
+#province_of(province, Country)
 #geography.canton_of(canton, province)
 #geography.district_of(district, canton)
 
-#San Jose Canton Central
+province(San_Jose)
+province(Alajuela)
+province(Cartago)
+province(Heredia)
+province(Guanacaste)
+province(Puntarenas)
+province(Limon)
 
+#San Jose Canton Central
 canton_of(San_Jose, San_Jose)
 canton_of(Escazu, San_Jose)
 canton_of(Desamparados, San_Jose)
@@ -26,7 +33,7 @@ canton_of(Leon_Cortes_Castro, San_Jose)
 
 #Alajuela Canton Central
 canton_of(Alajuela, Alajuela)
-canton_of(San Ramon, Alajuela)
+canton_of(San_Ramon, Alajuela)
 canton_of(Grecia, Alajuela)
 canton_of(Atenas, Alajuela)
 canton_of(Naranjo, Alajuela)
@@ -68,7 +75,7 @@ canton_of(Nicoya, Guanacaste)
 canton_of(Santa_Cruz, Guanacaste)
 canton_of(Bagaces, Guanacaste)
 canton_of(Filadelfia, Guanacaste)
-canton_of(Cañas, Guanacaste)
+canton_of(Canas, Guanacaste)
 canton_of(Abangares, Guanacaste)
 canton_of(Tilaran, Guanacaste)
 canton_of(Nandayure, Guanacaste)
@@ -87,12 +94,12 @@ canton_of(Parrita, Puntarenas)
 canton_of(Corredores, Puntarenas)
 canton_of(Garabito, Puntarenas)
 
-canton_of(Limón, Limón)
-canton_of(Pococí, Limón)
-canton_of(Siquirres, Limón)
-canton_of(Talamanca, Limón)
-canton_of(Matina, Limón)
-canton_of(Guácimo, Limón)
+canton_of(Limon, Limon)
+canton_of(Pococi, Limon)
+canton_of(Siquirres, Limon)
+canton_of(Talamanca, Limon)
+canton_of(Matina, Limon)
+canton_of(Guacimo, Limon)
 
 
 

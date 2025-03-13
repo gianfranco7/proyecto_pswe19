@@ -4,7 +4,7 @@ Repositorio para el proyecto del curso Sistemas Basados en el Conocimiento PSWE-
 
 
 
-Python 3.8.10o superior 
+Python 3.8.10 o superior 
 
 
 # Guía de Usuario  

@@ -9,8 +9,8 @@ nlp = spacy.load("es_core_news_sm")
 
 # Definir listas de provincias, cantones, procesos, sexo y horas
 provincias = {"Alajuela", "San José", "Cartago", "Heredia", "Guanacaste", "Puntarenas", "Limón"}
-cantones = {"San Carlos", "Grecia", "Atenas", "Poás", "Orotina", "Alajuela"}  # Alajuela también es cantón
-procesos = {"Suma", "Resta", "Conteo"}
+cantones = {"San Carlos", "Grecia", "Atenas", "Poás", "Orotina", "Alajuela"}  # Alajuela también es cantón por lo cual la repetimos en caso que el usuario vuelva a repetirlo
+procesos = {"Suma", "Resta", "Conteo"} # Actualmente colocamos estos nombre ya que serian un ejemplo de guia para los futuros proceso que el sistema ahora como lo puede ser el total insidentes etc
 sexo = {"Mujer", "Hombre"}
 genero_relacionado = {"niña": "Mujer", "niño": "Hombre", "abuela": "Mujer", "abuelo": "Hombre"}
 
@@ -40,7 +40,7 @@ for nombre in sexo.union(genero_relacionado):  # Unir listas de sexo y género r
     pattern = [{"LOWER": token.lower()} for token in nombre.split()]
     matcher.add("SEXO", [pattern])
 
-# Agregar patrón para detectar horas (formato de 24 horas)
+# Agregar patrón para detectar horas (formato de 24 horas) el formato que puede colocar el usuario podria ser asi ejemplo: 08:00
 pattern_hora = [{"TEXT": {"regex": r"\b([01]?[0-9]|2[0-3]):([0-5][0-9])\b"}}]
 matcher.add("HORA", [pattern_hora])
 
@@ -48,6 +48,7 @@ matcher.add("HORA", [pattern_hora])
 pattern_palabra_hora = [{"LOWER": {"in": list(mapeo_horas.keys())}}]  # Las palabras mapeadas: Madrugada, Mañana, Tarde, Noche
 matcher.add("PALABRA_HORA", [pattern_palabra_hora])
 
+# Esta es una de las fases mas importante para separar las palabras a que entidades le recorresponde, con ello en un futuro ser utilizado para 
 @Language.component("detectar_entidades_personalizadas")
 def detectar_entidades_personalizadas(doc):
     matches = matcher(doc)

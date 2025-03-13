@@ -28,7 +28,7 @@ if df is None:
 # Filtrar filas donde el sexo no sea "HOMBRE" o "MUJER"
 df = df[df['Sexo'].isin(['HOMBRE', 'MUJER'])]
 
-# Parámetros de entrada
+# Parámetros de entrada que utilizamos para realizar las diferentes pruebas del sistema 
 provincia_input = "SAN JOSE"
 # canton_input = "SAN JOSE"
 canton_input = "SANTA ANA"

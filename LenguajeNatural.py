@@ -112,7 +112,7 @@ if "detectar_entidades_personalizadas" not in nlp.pipe_names:
     nlp.add_pipe("detectar_entidades_personalizadas", after="ner")
 
 # Texto de prueba
-texto = "La niña fue a la tienda a las 14:00 y su abuelo le dijo que su proceso de Resta estaba listo. Ella va a dormir a la madrugada."
+texto = "La niña fue a la tienda a las 14:00 en Alajuela y su abuelo le dijo que su proceso de Resta estaba listo. Ella va a dormir a la madrugada."
 
 # Procesar el texto
 doc = nlp(texto)

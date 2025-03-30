@@ -131,7 +131,7 @@ Deberías ver el nombre de tu entorno virtual precediendo la línea de comandos 
 Con el entorno virtual activado, puedes proceder a instalar las bibliotecas necesarias. Ejecuta los siguientes comandos en la terminal para instalar las dependencias:
 
 ```bash
-pip install spacy pandas scikit-fuzzy numpy matplotlib
+pip install spacy pandas scikit-fuzzy numpy matplotlib scipy
 ```
 
 ### Paso 7: Descargar el Modelo de spaCy

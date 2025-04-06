@@ -1,0 +1,175 @@
+country(costa_rica).
+
+province(san_jose).
+province(alajuela).
+province(cartago).
+province(heredia).
+province(guanacaste).
+province(puntarenas).
+province(limon).
+
+canton(san_jose_cc).
+canton(escazu).
+canton(desamparados).
+canton(puriscal).
+canton(tarrazu).
+canton(mora).
+canton(goicoechea).
+canton(santa_ana).
+canton(vazquez_de_coronado).
+canton(acosta).
+canton(tibas).
+canton(moravia).
+canton(montes_de_oca).
+canton(turrubares).
+canton(dota).
+canton(curridabat).
+canton(perez_zeledon).
+canton(leon_cortes_castro).
+canton(alajuela_cc).
+canton(san_ramon).
+canton(grecia).
+canton(atenas).
+canton(naranjo).
+canton(palmares).
+canton(poas).
+canton(orotina).
+canton(san_carlos).
+canton(zarcero).
+canton(valverde_vega).
+canton(upala).
+canton(los_chiles).
+canton(guatuso).
+canton(rio_cuarto).
+canton(heredia_cc).
+canton(barva).
+canton(santo_domingo).
+canton(santa_barbara).
+canton(san_rafael).
+canton(san_isidro).
+canton(belen).
+canton(flores).
+canton(san_pablo).
+canton(sarapiqui).
+canton(cartago_cc).
+canton(paraiso).
+canton(la_union).
+canton(jimenez).
+canton(turrialba).
+canton(alvarado).
+canton(oreamuno).
+canton(el_guarco).
+canton(liberia).
+canton(nicoya).
+canton(santa_cruz).
+canton(bagaces).
+canton(filadelfia).
+canton(canas).
+canton(abangares).
+canton(tilaran).
+canton(nandayure).
+canton(la_cruz).
+canton(hojancha).
+canton(puntarenas_cc).
+canton(esparza).
+canton(buenos_aires).
+canton(montes_de_oro).
+canton(osa).
+canton(quepos).
+canton(golfito).
+canton(coto_brus).
+canton(parrita).
+canton(corredores).
+canton(garabito).
+canton(limon_cc).
+canton(pococi).
+canton(siquirres).
+canton(talamanca).
+canton(matina).
+canton(guacimo).
+
+
+belongs_to(san_jose_cc, san_jose).
+belongs_to(escazu, san_jose).
+belongs_to(desamparados, san_jose).
+belongs_to(puriscal, san_jose).
+belongs_to(tarrazu, san_jose).
+belongs_to(mora, san_jose).
+belongs_to(goicoechea, san_jose).
+belongs_to(santa_ana, san_jose).
+belongs_to(vazquez_de_coronado, san_jose).
+belongs_to(acosta, san_jose).
+belongs_to(tibas, san_jose).
+belongs_to(moravia, san_jose).
+belongs_to(montes_de_oca, san_jose).
+belongs_to(turrubares, san_jose).
+belongs_to(dota, san_jose).
+belongs_to(curridabat, san_jose).
+belongs_to(perez_zeledon, san_jose).
+belongs_to(leon_cortes_castro, san_jose).
+belongs_to(alajuela_cc, alajuela).
+belongs_to(san_ramon, alajuela).
+belongs_to(grecia, alajuela).
+belongs_to(atenas, alajuela).
+belongs_to(naranjo, alajuela).
+belongs_to(palmares, alajuela).
+belongs_to(poas, alajuela).
+belongs_to(orotina, alajuela).
+belongs_to(san_carlos, alajuela).
+belongs_to(zarcero, alajuela).
+belongs_to(valverde_vega, alajuela).
+belongs_to(upala, alajuela).
+belongs_to(los_chiles, alajuela).
+belongs_to(guatuso, alajuela).
+belongs_to(rio_cuarto, alajuela).
+belongs_to(heredia_cc, heredia).
+belongs_to(barva, heredia).
+belongs_to(santo_domingo, heredia).
+belongs_to(santa_barbara, heredia).
+belongs_to(san_rafael, heredia).
+belongs_to(san_isidro, heredia).
+belongs_to(belen, heredia).
+belongs_to(flores, heredia).
+belongs_to(san_pablo, heredia).
+belongs_to(sarapiqui, heredia).
+belongs_to(cartago_cc, cartago).
+belongs_to(paraiso, cartago).
+belongs_to(la_union, cartago).
+belongs_to(jimenez, cartago).
+belongs_to(turrialba, cartago).
+belongs_to(alvarado, cartago).
+belongs_to(oreamuno, cartago).
+belongs_to(el_guarco, cartago).
+belongs_to(liberia, guanacaste).
+belongs_to(nicoya, guanacaste).
+belongs_to(santa_cruz, guanacaste).
+belongs_to(bagaces, guanacaste).
+belongs_to(filadelfia, guanacaste).
+belongs_to(canas, guanacaste).
+belongs_to(abangares, guanacaste).
+belongs_to(tilaran, guanacaste).
+belongs_to(nandayure, guanacaste).
+belongs_to(la_cruz, guanacaste).
+belongs_to(hojancha, guanacaste).
+belongs_to(puntarenas_cc, puntarenas).
+belongs_to(esparza, puntarenas).
+belongs_to(buenos_aires, puntarenas).
+belongs_to(montes_de_oro, puntarenas).
+belongs_to(osa, puntarenas).
+belongs_to(quepos, puntarenas).
+belongs_to(golfito, puntarenas).
+belongs_to(coto_brus, puntarenas).
+belongs_to(parrita, puntarenas).
+belongs_to(corredores, puntarenas).
+belongs_to(garabito, puntarenas).
+belongs_to(limon_cc, limon).
+belongs_to(pococi, limon).
+belongs_to(siquirres, limon).
+belongs_to(talamanca, limon).
+belongs_to(matina, limon).
+belongs_to(guacimo, limon).
+
+
+
+
+is_canton_of(X, Y) :- canton(X), province(Y), belongs_to(X, Y).

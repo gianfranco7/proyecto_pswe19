@@ -1,20 +1,21 @@
-
+#inference module
 
 import os
 import csv
 import pytholog as pl
 import pandas as pd
+from dataclasses import dataclass
 
+@dataclass
+class InferenceEngine:
+    __knowledgeBase: pl.KnowledgeBase = pl.KnowledgeBase("kb")
 
-script_directory = os.path.dirname(os.path.abspath(__file__))
+    @property
+    def knowledgeBase(self) -> pl.KnowledgeBase:
+        return self.__knowledgeBase
 
-filename = "kb_files/geo.txt"
+    def print_kb(self):
+        print(self.__knowledgeBase)
 
-dataset_path = os.path.join(script_directory, filename)
-
-ex = pl.KnowledgeBase("geo")
-
-ex.from_file(dataset_path)
-
-print(ex.query(pl.Expr("is_canton_of(X, san_jose)")))
-
+    def print_kb_db(self):
+        print(self.__knowledgeBase.db)

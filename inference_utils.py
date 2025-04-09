@@ -12,6 +12,7 @@ def df_column_to_facts(df: pd.DataFrame, column: str, fact_name: str, engine: In
         for val in unique_values:
             val = val.lower().replace(" ", "_")
             engine.knowledgeBase([f"{fact_name}({val})"])
+            #print(f"{fact_name}({val})")
     except ValueError as e:
         print(f"Error! load_csv: {e}")
 

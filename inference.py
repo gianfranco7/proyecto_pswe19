@@ -19,3 +19,7 @@ class InferenceEngine:
 
     def print_kb_db(self):
         print(self.__knowledgeBase.db)
+
+    def query(self, query: str):
+        query_result = self.__knowledgeBase.query(pl.Expr(query))
+        return query_result

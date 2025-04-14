@@ -22,6 +22,8 @@ __incidencia_df__ = iu.load_csv_as_dataframe(os.path.join(__script_directory__, 
 
 #iu.df_column_to_facts(__incidencia_df__, "Incidencia", "incidence_level", __ie__)
 
+trans = str.maketrans("áéíóú", "aeiou")
+
 def __asociate_canton_to_incidence_level__():
     #agregar el hecho para cada canton
     for i in range(__incidencia_df__.shape[0]):
@@ -56,7 +58,7 @@ def __query_kb__(expr: str):
 #__query_kb__("canton_incidence_level(montes_de_oca, R)")    #ejemplo de un query que recupera información
 
 def is_dangerous_place(place: str):
-    p = place.lower().strip().replace(" ", "_")
+    p = place.lower().strip().replace(" ", "_").translate(trans)
     query_result = __ie__.query(f"is_dangerous({p})")
     return query_result[0] == "Yes"
 

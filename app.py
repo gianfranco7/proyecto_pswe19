@@ -4,27 +4,45 @@ import streamlit as st
 import pandas as pd
 import inference_utils as iu
 import os
+from inference_init import is_dangerous_place
 
-# GLobal Vars
-__app_dir__ = os.path.dirname(os.path.abspath(__file__))
-__active_df__ = iu.load_csv_as_dataframe(os.path.join(__app_dir__, "datasets\\incidencia.csv"))
+from forms import DEMO_FORMS
 
-# Configuración de la página
-st.set_page_config(
-    page_title="Estadisticas Criminales",
-    page_icon="🔍",
-    layout="wide"
-)
+def main():
+    st.title("Estadisticas Criminales")
 
-st.write("# Estadisticas Criminales")
+    with st.sidebar:
+        st.header("Consultas")
+        form_options = ("Peligrosidad", "Crimenes")
+        selected_form = st.selectbox(
+            label="Escoja una opcion:",
+            options=form_options,
+        )
 
-# Sidebar con información
-with st.sidebar:
-    st.header("Información")
-    st.markdown("""
-    Esta Applicacion permite visualizar y en alguna forma
-                interactuar con las estadisticas criminales del OIJ de Costa Rica.
-    """)
+        form, comment = DEMO_FORMS[selected_form]
+     
+   
+    canton = form()
+    response = is_dangerous_place(canton)
 
-st.dataframe(__active_df__)
+    if(response):
+        st.write("Es peligroso")
+    else:
+        st.write("No es Peligroso")
 
+
+if __name__ == "__main__":
+    st.set_page_config(
+        page_title="Estadisticas Criminales", page_icon=":chart_with_upwards_trend:"
+    )
+    main()
+    # with st.sidebar:
+    #     st.markdown("---")
+    #     st.markdown(
+    #         '<h6>Made in &nbsp<img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16">&nbsp by <a href="https://twitter.com/andfanilo">@andfanilo</a></h6>',
+    #         unsafe_allow_html=True,
+    #     )
+    #     st.markdown(
+    #         '<div style="margin-top: 0.75em;"><a href="https://www.buymeacoffee.com/andfanilo" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a></div>',
+    #         unsafe_allow_html=True,
+    #     )

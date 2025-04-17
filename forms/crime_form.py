@@ -1,6 +1,7 @@
 import streamlit as st
 from .geo import PROVINCES
 
+# render del componente para input de usuario
 def render_crime_form():
     st.write("Es peligroso el Canton donde Vive?")
     
@@ -24,10 +25,14 @@ def render_crime_form():
     return selected_canton
 
 
+# respuesta para el componente de render_query_form
+def render_crime_form_response(canton:str):
+    st.write(f"Esta es una respuesta para {canton}")
 
+# exporta ambos componentes visuales
 CRIME_FORM = {
     "Peligrosidad":(
         render_crime_form,
-        "Formulario de prueba"
+        render_crime_form_response
     )
 }

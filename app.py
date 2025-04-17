@@ -1,12 +1,11 @@
 
-
-import streamlit as st
-import pandas as pd
-import inference_utils as iu
 import os
-from inference_init import is_dangerous_place
-
+import pandas as pd
+import streamlit as st
+import inference_utils as iu
 from forms import DEMO_FORMS
+
+from datasets import incidence
 
 def main():
     st.title("Estadisticas Criminales")
@@ -19,16 +18,16 @@ def main():
             options=form_options,
         )
 
-        form, comment = DEMO_FORMS[selected_form]
+        query, resp = DEMO_FORMS[selected_form]
      
-   
-    canton = form()
-    response = is_dangerous_place(canton)
+# Renderiza y obtiene la query_data del componente (form) si existe   
+    query_data = query()
 
-    if(response):
-        st.write("Es peligroso")
-    else:
-        st.write("No es Peligroso")
+# Si form genera query_data entonces renderiza el componente de respuesta
+    if(query_data):
+       resp(query_data)
+
+    st.dataframe(incidence)
 
 
 if __name__ == "__main__":

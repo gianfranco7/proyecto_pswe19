@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 import inference_utils as iu
 from forms import DEMO_FORMS
-
 from datasets import incidence
 
 def main():
@@ -26,8 +25,6 @@ def main():
 # Si form genera query_data entonces renderiza el componente de respuesta
     if(query_data):
        resp(query_data)
-
-    st.dataframe(incidence)
 
 
 if __name__ == "__main__":

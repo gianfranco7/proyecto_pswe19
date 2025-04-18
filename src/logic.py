@@ -6,12 +6,14 @@ def place_to_uppercase(canton:str):
     c = canton.translate(trans).upper()
     return c
 
+#retorna el row del canton del dataset incidencia
 def get_canton_incidence_statistics(canton: str):
     df = datasets.incidence
     c = place_to_uppercase(canton)
     column = df.loc[df['Canton'] == c]    
     return column.reset_index()
 
+# retorna los rows para la procvincia dada del dataset incidencia
 def get_province_incidence_statistics(province:str):
     df = datasets.incidence
     p = place_to_uppercase(province)

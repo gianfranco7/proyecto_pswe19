@@ -26,7 +26,7 @@ def render_crime_form():
     return selected_canton
 
 
-# respuesta para el componente de render_query_form
+# respuesta para el componente de render_crime_form
 def render_crime_form_response(canton:str):
     stats = get_canton_incidence_statistics(canton)
     st_dic = stats.to_dict(orient='records')[0]  # Obtiene cada row del df como un diccionario (toma solo el row 0)

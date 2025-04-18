@@ -1,7 +1,7 @@
 #inference_utils module
 
 import pandas as pd
-from inference import InferenceEngine
+from .inference import InferenceEngine
 
 
 

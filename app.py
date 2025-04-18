@@ -1,10 +1,6 @@
-
-import os
-import pandas as pd
 import streamlit as st
-import inference_utils as iu
-from forms import DEMO_FORMS
-from datasets import incidence
+from src import DEMO_FORMS
+
 
 def main():
     st.title("Estadisticas Criminales")

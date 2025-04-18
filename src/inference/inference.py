@@ -1,9 +1,6 @@
 #inference module
 
-import os
-import csv
 import pytholog as pl
-import pandas as pd
 from dataclasses import dataclass
 
 @dataclass

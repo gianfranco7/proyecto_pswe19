@@ -1,9 +1,11 @@
 
 from .crime_form import CRIME_FORM
+from .heatmap_form import HEATMAP
 import datasets 
 
 DEMO_FORMS = {
-    **CRIME_FORM
+    **CRIME_FORM,
+    **HEATMAP
 }
 
 DATASETS = {

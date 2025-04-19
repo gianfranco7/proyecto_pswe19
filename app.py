@@ -7,7 +7,7 @@ def main():
 
     with st.sidebar:
         st.header("Consultas")
-        form_options = ("Peligrosidad", "Crimenes")
+        form_options = ("Peligrosidad", "Heatmap")
         selected_form = st.selectbox(
             label="Escoja una opcion:",
             options=form_options,

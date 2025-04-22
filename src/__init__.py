@@ -1,11 +1,13 @@
 
 from .crime_form import CRIME_FORM
 from .heatmap_form import HEATMAP
+from .nlp_crime_form import NLP_CRIME_FORM
 import datasets 
 
 DEMO_FORMS = {
     **CRIME_FORM,
-    **HEATMAP
+    **HEATMAP,
+    **NLP_CRIME_FORM
 }
 
 DATASETS = {

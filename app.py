@@ -7,7 +7,7 @@ def main():
 
     with st.sidebar:
         st.header("Consultas")
-        form_options = ("Peligrosidad", "Heatmap")
+        form_options = ("Peligrosidad", "Heatmap", "Natural Language Processing")
         selected_form = st.selectbox(
             label="Escoja una opcion:",
             options=form_options,
@@ -25,7 +25,7 @@ def main():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="Estadisticas Criminales", page_icon=":chart_with_upwards_trend:"
+        page_title="Estadisticas Criminales", page_icon=":chart_with_upwards_trend:", layout="wide"
     )
     main()
     # with st.sidebar:

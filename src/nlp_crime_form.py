@@ -4,7 +4,7 @@ from .nlp_crime_form_logic import *
 from .inference.inference import InferenceEngine
 
 default_dataset_path = os.path.join(current_dir, "datasets", "Estadisticas.csv")
-titulo = "Estadísticas Criminales apoyadas por IA"
+# titulo = "Estadísticas Criminales apoyadas por IA"
 
 def render_nlp_crime_form():
     if 'loaded_file' not in st.session_state:
@@ -18,7 +18,7 @@ def render_nlp_crime_form():
     #     layout="wide"
     # )
 
-    st.title(titulo)
+    # st.title(titulo)
     st.markdown("""
         Este form permite realizar una prueba de concepto de lo que sería realizar consultas al motor de inferencia por medio de 
         procesamiento de lenguaje natural (NLP). Para fines de este prototipo solamente se analisa un cantón de Costa Rica con base 
@@ -118,10 +118,10 @@ def render_nlp_crime_form():
             st.code("¿la ciudad de belen es peligrosa?")
             st.code("¿cuál es el nivel de peligro en dota?")
 
-render_nlp_crime_form()
+#render_nlp_crime_form()
 
 NLP_CRIME_FORM = {
-    "Peligrosidad_NLP":(
+    "Natural Language Processing":(
         render_nlp_crime_form,
         None
     )

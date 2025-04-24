@@ -6,7 +6,6 @@ import datasets
 
 DEMO_FORMS = {
     **CRIME_FORM,
-    **HEATMAP,
     **NLP_CRIME_FORM
 }
 

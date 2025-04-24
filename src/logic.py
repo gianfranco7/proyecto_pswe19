@@ -1,5 +1,6 @@
 import datasets
 import json
+import geojson
 import pandas as pd
 import geopandas as gpd
 from pathlib import Path
@@ -12,7 +13,7 @@ def place_to_uppercase(canton:str):
 
 def load_geo_json(filtpath):
     with open(filtpath, "r", encoding="utf-8") as f:    
-        file = json.load(f)
+        file =  geojson.load(f)
     return file
 
 #retorna el row del canton del dataset incidencia
@@ -30,12 +31,17 @@ def get_province_incidence_statistics(province:str):
     df = df[df["Provincia"] == province]
     return df
 
+# Retorna un dataframe formateado para plotly
 def get_incidence_df_with_geo_data(geojson_path: Path):    
-    gdf = gpd.read_file(geojson_path)
-    gdf.rename(columns={"NOM_PROV": "Provincia", "NOM_CANT_1":"Canton"}, inplace=True)
-    gdf = gdf[["Canton", "geometry"]]
-
-    df = datasets.incidence
-    merged = pd.merge(df, gdf, on="Canton", how="left")
-    #df["geometry"] = df.apply(lambda row: geo_dic.get(row['Canton'], 'None'), axis=1)
-    return merged
+    f = load_geo_json(geojson_path)
+    features = f.features
+    df = pd.DataFrame({'type': ['FeatureCollection'] * len(features), 'features': features})
+    return df
+    # gdf = gpd.read_file(geojson_path)
+    # gdf.to_crs(epsg=4326, inplace=True)
+    # gdf.rename(columns={"NOM_PROV": "Provincia", "NOM_CANT_1":"Canton"}, inplace=True)
+    # gdf = gdf[["Canton", "geometry"]]
+    # df = datasets.incidence
+    # merged = pd.merge(df, gdf, on="Canton", how="left")
+    # merged = merged.dropna(subset=["geometry"])
+    # return merged

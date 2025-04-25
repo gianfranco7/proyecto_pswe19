@@ -108,6 +108,7 @@ provincia_input = "SAN JOSE"
 canton_input = "SANTA ANA"
 hora_input = time(19, 0)  # 7:00 PM
 
+print(f"Caso 1")
 responder_probabilidad_delito_violento(df, provincia_input, canton_input, hora_input)
 
 # ===========================
@@ -199,6 +200,7 @@ canton_input = "SANTA ANA"
 edad_input = 65
 sexo_input = 1  # 0 = Hombre, 1 = Mujer
 
+print(f"Caso 2")
 evaluar_vulnerabilidad(df, edad_input, sexo_input, provincia_input, canton_input)
 
 
@@ -271,17 +273,12 @@ def delito_probable_por_hora_y_zona(df, provincia, canton, hora_input):
 provincia_input = "SAN JOSE"
 canton_input = "SANTA ANA"
 hora_input = time(19, 0)
-
+print(f"Caso 3")
 delito_probable_por_hora_y_zona(df, provincia_input, canton_input, hora_input)
 
 # ===========================
 # Función principal del caso 4
 # ===========================
-
-
-# Convertir fecha a datetime
-df['Fecha'] = pd.to_datetime(df['Fecha'], errors='coerce')
-df = df.dropna(subset=['Fecha'])
 
 # Categorizar hora como franja difusa
 def obtener_franja_horaria(hora_obj):
@@ -381,4 +378,5 @@ provincia_input = "SAN JOSE"
 canton_input = "SANTA ANA"
 hora_input = time(20, 0)
 
+print(f"Caso 4")
 tendencia_delictiva(df, provincia_input, canton_input, hora_input)

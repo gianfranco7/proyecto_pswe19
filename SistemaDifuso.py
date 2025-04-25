@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # Obtener la ruta del archivo CSV
 current_dir = os.getcwd()
 filename = "Estadisticas.csv"
-dataset_path = os.path.join(current_dir, filename)
+dataset_path = os.path.join(current_dir, "datasets", filename)
 
 # Cargar datos del CSV con manejo de errores
 def cargar_datos(ruta_csv):

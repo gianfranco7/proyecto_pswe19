@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 # Ruta del archivo
 current_dir = os.getcwd()
 filename = "Estadisticas.csv"
-dataset_path = os.path.join(current_dir, filename)
+dataset_path = os.path.join(current_dir, "datasets", filename)
 
 # Cargar CSV y extraer provincias y cantones únicos
 def cargar_datos(ruta_csv):
